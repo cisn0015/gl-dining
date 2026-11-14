@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="gldining">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>blu | GL Dining</title>
+  <meta name="description" content="blu fine wine & food in downtown Norman, OK: wine flights, tapas, pizza and weekend brunch.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&family=Playfair+Display:ital,wght@0,500;0,700;1,500&family=Quicksand:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css">
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <link href="css/styles.css" rel="stylesheet">
+</head>
+<body data-page="blu" data-venue="blu" class="page-blu">
+  <div id="site-header"></div>
+
+  <main>
+    <!-- Intro (basic version; to be replaced by the full-width photo banner) -->
+    <section class="venue-intro">
+      <div class="max-w-6xl mx-auto px-4 py-12">
+        <p class="eyebrow" data-field="eyebrow"></p>
+        <h1 class="venue-title mt-2" data-field="name"></h1>
+        <p class="venue-sub" data-field="sub"></p>
+        <p class="text-muted max-w-xl mt-4" data-field="lede"></p>
+        <div class="flex flex-wrap gap-x-8 gap-y-3 mt-6 text-sm">
+          <div><p class="eyebrow">Address</p><p data-field="addr"></p></div>
+          <div><p class="eyebrow">Phone</p><p data-field="phone"></p></div>
+          <div><p class="eyebrow">Today</p><span class="badge" data-status="blu">Checking hours…</span></div>
+        </div>
+        <div class="flex flex-wrap gap-3 mt-6">
+          <a href="#menu" class="btn btn-primary rounded-full">See the menu</a>
+          <a data-directions target="_blank" rel="noopener" class="btn btn-outline btn-primary rounded-full">Get directions</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- SPECIALS & ACTIVITIES: wine tasting, happy hour, lunch pick 2 (data: VENUES.blu.specials) -->
+    <section id="specials" class="max-w-6xl mx-auto px-4 pt-14 scroll-mt-20">
+      <h2 class="section-title mb-5">Specials &amp; activities</h2>
+      <div id="specials-list" class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3"></div>
+    </section>
+
+    <!-- MENU: tabbed menu built from VENUES.blu.menu -->
+    <section id="menu" class="max-w-6xl mx-auto px-4 pt-14 scroll-mt-20">
+      <h2 class="section-title mb-5">Menu</h2>
+      <div id="menu-root"></div>
+    </section>
+
+    <!-- VISIT: weekly hours table, map link, photo gallery (data: VENUES.blu.hours, .gallery) -->
+    <section id="visit" class="max-w-6xl mx-auto px-4 py-14 scroll-mt-20">
+      <h2 class="section-title mb-5">Hours &amp; location</h2>
+      <div id="visit-root"></div>
+    </section>
+    <!-- Careers callout -->
+    <section class="max-w-6xl mx-auto px-4 pb-14">
+      <div class="card bg-base-100 shadow-sm">
+        <div class="card-body flex-row flex-wrap items-center justify-between gap-4">
+          <div>
+            <h2 class="section-title" style="font-size:1.7rem">Work at blu</h2>
+            <p class="text-muted">We're hiring servers, bartenders and cooks.</p>
+          </div>
+          <a href="careers.html#apply" class="btn btn-primary rounded-full">See jobs &amp; apply</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="site-footer"></div>
+
+  <script src="js/data.js"></script>
+  <script src="js/layout.js"></script>
+  <script src="js/hours.js"></script>
+  <script src="js/restaurant.js"></script>
+  <script src="js/specials.js"></script>
+  <script src="js/menu.js"></script>
+  <script src="js/visit.js"></script>
+</body>
+</html>

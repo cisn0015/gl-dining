@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="gldining">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>GL Dining | blu &amp; The Library · Norman, OK</title>
+  <meta name="description" content="GL Dining is home to blu fine wine & food and The Library Bar & Grill in Norman, Oklahoma.">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&family=Playfair+Display:ital,wght@0,500;0,700;1,500&family=Quicksand:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- DaisyUI 5 + Tailwind CSS 4 (no install needed) -->
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css">
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+  <!-- GL Dining design system -->
+  <link href="css/styles.css" rel="stylesheet">
+</head>
+<body data-page="home">
+  <div id="site-header"></div>
+
+  <main>
+    <!-- Intro -->
+    <section class="max-w-6xl mx-auto px-4 pt-14 pb-8 text-center">
+      <p class="eyebrow">Two Norman restaurants · One family</p>
+      <h1 class="home-title mt-2">GL Dining</h1>
+      <p class="home-tag mt-1">Welcome to the Good Life!</p>
+      <p class="text-muted max-w-xl mx-auto mt-4">Wine flights and small plates downtown, or a cold draft on a shady patio across from campus. Choose a door.</p>
+    </section>
+
+    <!-- Restaurant choices -->
+    <section class="doors max-w-6xl mx-auto px-4" aria-label="Our restaurants">
+      <a class="door door-blu" href="blu.html">
+        <img src="img/blu-sign.jpg" alt="blu's glowing blue neon sign at night">
+        <div class="door-text">
+          <p class="eyebrow">Downtown · since 2007</p>
+          <h2 class="font-blu font-medium">blu</h2>
+          <p>Fine wine &amp; food</p>
+          <div class="door-foot">
+            <span class="badge" data-status="blu">Checking hours…</span>
+            <span class="enter">Step inside →</span>
+          </div>
+        </div>
+      </a>
+      <a class="door door-lib" href="library.html">
+        <img src="img/library-patio.jpg" alt="The Library's shaded brick patio and green awning">
+        <div class="door-text">
+          <p class="eyebrow">Campus Corner · est. 1920</p>
+          <h2 class="font-lib">The Library</h2>
+          <p>Bar &amp; grill</p>
+          <div class="door-foot">
+            <span class="badge" data-status="library">Checking hours…</span>
+            <span class="enter">Step inside →</span>
+          </div>
+        </div>
+      </a>
+    </section>
+
+    <!-- Hours and locations side by side -->
+    <section class="max-w-6xl mx-auto px-4 py-16" aria-labelledby="glance-title">
+      <h2 id="glance-title" class="section-title mb-5">At a glance</h2>
+      <div class="overflow-x-auto rounded-box bg-base-100 shadow-sm">
+        <table class="table glance">
+          <thead>
+            <tr>
+              <th class="row-label"></th>
+              <th class="font-blu text-blu">blu</th>
+              <th class="font-lib text-lib">The Library</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td class="row-label">Address</td><td>201 S Crawford Ave<br>Norman, OK 73069</td><td>607 W Boyd St<br>Norman, OK 73069</td></tr>
+            <tr><td class="row-label">Phone</td><td>(405) 360-4258</td><td>(405) 366-7465</td></tr>
+            <tr><td class="row-label">Hours</td><td>Mon–Fri 11am–midnight<br>Sat–Sun 10am–midnight</td><td>Mon–Thu 11am–midnight<br>Fri 11am–2am · Sat 10am–2am<br>Sun 10am–midnight</td></tr>
+            <tr><td class="row-label">Happy hour</td><td>Daily 3–6pm</td><td>Daily 3–6pm</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <div id="site-footer"></div>
+
+  <script src="js/data.js"></script>
+  <script src="js/layout.js"></script>
+  <script src="js/hours.js"></script>
+</body>
+</html>

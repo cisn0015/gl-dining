@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="gldining">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Careers | GL Dining</title>
+  <meta name="description" content="Work at blu or The Library in Norman, OK.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&family=Playfair+Display:ital,wght@0,500;0,700;1,500&family=Quicksand:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css">
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <link href="css/styles.css" rel="stylesheet">
+</head>
+<body data-page="careers">
+  <div id="site-header"></div>
+
+  <main class="max-w-6xl mx-auto px-4">
+    <section class="pt-14 pb-8">
+      <p class="eyebrow">Careers at GL Dining</p>
+      <h1 class="home-title mt-2" style="font-size:clamp(2.6rem,7vw,4.6rem)">Come work with us.</h1>
+      <p class="text-muted max-w-xl mt-4">We're a small Norman restaurant family, and we hire for both blu and The Library.</p>
+    </section>
+
+    <!-- One card per restaurant (roles are examples until the client confirms openings) -->
+    <section class="grid md:grid-cols-2 gap-6">
+      <article class="card bg-base-100 shadow-sm">
+        <div class="card-body">
+          <h2 class="card-title font-blu text-blu text-4xl font-medium">blu</h2>
+          <p class="text-muted">201 S Crawford Ave · wine bar &amp; kitchen</p>
+          <div class="flex flex-wrap gap-2 mt-2">
+            <span class="badge badge-soft badge-primary">Server</span>
+            <span class="badge badge-soft badge-primary">Bartender</span>
+            <span class="badge badge-soft badge-primary">Host</span>
+            <span class="badge badge-soft badge-primary">Line cook</span>
+          </div>
+          <div class="card-actions mt-4"><a href="#apply" data-apply="blu" class="btn btn-primary rounded-full">Apply at blu</a></div>
+        </div>
+      </article>
+      <article class="card bg-base-100 shadow-sm">
+        <div class="card-body">
+          <h2 class="card-title font-lib text-lib text-4xl">The Library</h2>
+          <p class="text-muted">607 W Boyd St · bar &amp; grill</p>
+          <div class="flex flex-wrap gap-2 mt-2">
+            <span class="badge badge-soft badge-secondary">Bartender</span>
+            <span class="badge badge-soft badge-secondary">Server</span>
+            <span class="badge badge-soft badge-secondary">Cook</span>
+            <span class="badge badge-soft badge-secondary">Barback</span>
+          </div>
+          <div class="card-actions mt-4"><a href="#apply" data-apply="library" class="btn btn-secondary rounded-full">Apply at The Library</a></div>
+        </div>
+      </article>
+    </section>
+
+    <!-- APPLICATION FORM (js/careers.js handles submitting) -->
+    <section id="apply" class="py-14 scroll-mt-20">
+      <h2 class="section-title mb-5">Application</h2>
+      <form id="job-form" class="card bg-base-100 shadow-sm">
+        <div class="card-body">
+          <div class="grid gap-x-6 md:grid-cols-2">
+            <fieldset class="fieldset">
+              <legend class="fieldset-legend">Full name</legend>
+              <input id="job-name" name="name" type="text" class="input w-full" autocomplete="name" required>
+            </fieldset>
+            <fieldset class="fieldset">
+              <legend class="fieldset-legend">Email</legend>
+              <input id="job-email" name="email" type="email" class="input w-full" autocomplete="email" required>
+            </fieldset>
+            <fieldset class="fieldset">
+              <legend class="fieldset-legend">Phone</legend>
+              <input id="job-phone" name="phone" type="tel" class="input w-full" autocomplete="tel" placeholder="(405) 555-0123">
+            </fieldset>
+            <fieldset class="fieldset">
+              <legend class="fieldset-legend">Restaurant</legend>
+              <select id="job-venue" name="restaurant" class="select w-full">
+                <option value="blu">blu</option>
+                <option value="library">The Library</option>
+                <option value="either">Either one</option>
+              </select>
+            </fieldset>
+            <fieldset class="fieldset">
+              <legend class="fieldset-legend">Position</legend>
+              <select id="job-role" name="position" class="select w-full">
+                <option>Server</option>
+                <option>Bartender</option>
+                <option>Host</option>
+                <option>Cook</option>
+                <option>Barback</option>
+                <option>Dishwasher</option>
+              </select>
+            </fieldset>
+            <fieldset class="fieldset">
+              <legend class="fieldset-legend">Earliest start date</legend>
+              <input id="job-start" name="start_date" type="date" class="input w-full">
+            </fieldset>
+          </div>
+
+          <fieldset class="fieldset">
+            <legend class="fieldset-legend">When can you work?</legend>
+            <div class="flex flex-wrap gap-x-6 gap-y-2">
+              <label class="label text-base-content"><input type="checkbox" name="availability" value="Weekdays" class="checkbox checkbox-sm"> Weekdays</label>
+              <label class="label text-base-content"><input type="checkbox" name="availability" value="Nights" class="checkbox checkbox-sm"> Nights</label>
+              <label class="label text-base-content"><input type="checkbox" name="availability" value="Weekends" class="checkbox checkbox-sm"> Weekends</label>
+              <label class="label text-base-content"><input type="checkbox" name="availability" value="Brunch" class="checkbox checkbox-sm"> Weekend brunch</label>
+            </div>
+          </fieldset>
+
+          <fieldset class="fieldset">
+            <legend class="fieldset-legend">Experience &amp; anything else we should know</legend>
+            <textarea id="job-notes" name="experience" class="textarea w-full" rows="4" placeholder="Past restaurant jobs, certifications, class schedule…"></textarea>
+          </fieldset>
+
+          <fieldset class="fieldset">
+            <legend class="fieldset-legend">Resume link (optional)</legend>
+            <input id="job-resume" name="resume_link" type="url" class="input w-full" placeholder="https://drive.google.com/…">
+            <p class="label">Paste a link to your resume on Google Drive, Dropbox or LinkedIn.</p>
+          </fieldset>
+
+          <div class="mt-4">
+            <button type="submit" class="btn btn-accent rounded-full">Submit application</button>
+          </div>
+          <div id="job-message" role="status" hidden></div>
+        </div>
+      </form>
+    </section>
+  </main>
+
+  <div id="site-footer"></div>
+
+  <script src="js/data.js"></script>
+  <script src="js/layout.js"></script>
+  <script src="js/careers.js"></script>
+</body>
+</html>

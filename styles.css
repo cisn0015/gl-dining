@@ -1,0 +1,295 @@
+/* =====================================================================
+   GL DINING — design system
+   Built on DaisyUI 5 + Tailwind CSS 4 (loaded from a CDN in each page).
+
+   1. Theme tokens  — the "gldining" DaisyUI theme + brand variables
+   2. Base          — fonts, page background
+   3. Shared pieces — navbar, headings, placeholders
+   4. Homepage      — arched restaurant "doors", at-a-glance table
+   5. Restaurant pages
+   ===================================================================== */
+
+/* ---------- 1. Theme tokens ---------- */
+[data-theme="gldining"] {
+  color-scheme: light;
+
+  /* DaisyUI theme colors: btn-primary, badge-secondary, bg-base-200, etc. */
+  --color-base-100: #FBFAF8;      /* cards, navbar menus */
+  --color-base-200: #F2F1ED;      /* page background (soft grey-white) */
+  --color-base-300: #E0DED7;      /* borders, dividers */
+  --color-base-content: #25231F;  /* main text */
+  --color-primary: #24427F;       /* blu navy */
+  --color-primary-content: #FFFFFF;
+  --color-secondary: #2E5546;     /* The Library green */
+  --color-secondary-content: #FFFFFF;
+  --color-accent: #9C7A3C;        /* GL Dining gold */
+  --color-accent-content: #FFFFFF;
+  --color-neutral: #25231F;
+  --color-neutral-content: #F2F1ED;
+  --color-info: #3E63C9;
+  --color-info-content: #FFFFFF;
+  --color-success: #2F7D4F;       /* "Open now" */
+  --color-success-content: #FFFFFF;
+  --color-warning: #B7791F;
+  --color-warning-content: #FFFFFF;
+  --color-error: #A4473B;         /* "Closed" */
+  --color-error-content: #FFFFFF;
+
+  /* DaisyUI shape settings */
+  --radius-selector: 2rem;
+  --radius-field: 0.75rem;
+  --radius-box: 1.25rem;
+  --size-selector: 0.25rem;
+  --size-field: 0.25rem;
+  --border: 1px;
+  --depth: 1;
+  --noise: 0;
+
+  /* GL Dining brand variables */
+  --gl-blu: #24427F;
+  --gl-blu-light: #3E63C9;
+  --gl-blu-soft: #E4EAEC;
+  --gl-lib: #2E5546;
+  --gl-lib-brown: #7A5230;
+  --gl-lib-soft: #E7E8D6;
+  --gl-gold: #9C7A3C;
+  --gl-muted: #6A675F;
+  --gl-shadow: rgba(40, 38, 32, 0.18);
+
+  /* Fonts: one for GL Dining, one for each restaurant, one for body text */
+  --font-home: "Playfair Display", Georgia, serif;
+  --font-blu: "Quicksand", "Figtree", system-ui, sans-serif;
+  --font-lib: "Old Standard TT", Georgia, "Times New Roman", serif;
+  --font-body: "Figtree", system-ui, sans-serif;
+}
+
+/* ---------- 2. Base ---------- */
+body {
+  font-family: var(--font-body);
+  background: var(--color-base-200);
+  color: var(--color-base-content);
+  line-height: 1.6;
+  min-height: 100vh;
+}
+/* soft warm glow behind every page */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(70% 55% at 50% -5%, rgba(233, 227, 214, 0.9), transparent 70%),
+    radial-gradient(45% 40% at 0% 100%, rgba(220, 211, 198, 0.5), transparent 70%),
+    radial-gradient(45% 40% at 100% 70%, rgba(220, 211, 198, 0.35), transparent 70%);
+}
+h1, h2, h3 { text-wrap: balance; line-height: 1.1; }
+:focus-visible { outline: 2px solid var(--gl-gold); outline-offset: 3px; }
+
+.font-home { font-family: var(--font-home); }
+.font-blu  { font-family: var(--font-blu); letter-spacing: -0.02em; }
+.font-lib  { font-family: var(--font-lib); }
+.text-muted { color: var(--gl-muted); }
+.text-gold  { color: var(--gl-gold); }
+.text-blu   { color: var(--gl-blu); }
+.text-lib   { color: var(--gl-lib); }
+
+.eyebrow {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--gl-muted);
+}
+
+/* ---------- 3. Shared pieces ---------- */
+.site-nav {
+  background: color-mix(in srgb, var(--color-base-200) 90%, transparent);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--color-base-300);
+}
+.brand {
+  font-family: var(--font-home);
+  font-weight: 700;
+  font-size: 1.4rem;
+  white-space: nowrap;
+  color: var(--color-base-content);
+  text-decoration: none;
+}
+.brand small {
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 0.7rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gl-muted);
+  margin-left: 0.6rem;
+}
+.site-nav .menu a { font-weight: 500; }
+
+.section-title {
+  font-family: var(--font-home);
+  font-size: clamp(2rem, 4.5vw, 2.8rem);
+}
+
+/* Placeholder box for sections still being built */
+.wip {
+  border: 2px dashed var(--color-base-300);
+  border-radius: var(--radius-box);
+  padding: 1.5rem;
+  color: var(--gl-muted);
+  background: color-mix(in srgb, var(--color-base-100) 60%, transparent);
+}
+.wip strong { color: var(--color-base-content); }
+
+.site-footer { border-top: 1px solid var(--color-base-300); }
+
+/* ---------- 4. Homepage ---------- */
+.home-title {
+  font-family: var(--font-home);
+  font-weight: 700;
+  font-size: clamp(3rem, 9vw, 6rem);
+}
+.home-tag {
+  font-family: var(--font-home);
+  font-style: italic;
+  color: var(--gl-gold);
+  font-size: clamp(1.25rem, 2.6vw, 1.6rem);
+}
+
+/* Arched "door" cards that lead into each restaurant */
+.doors {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.6rem;
+  align-items: start;
+}
+.door {
+  position: relative;
+  display: block;
+  aspect-ratio: 4 / 5;
+  max-width: 100%;
+  overflow: hidden;
+  border-radius: 200px 200px 22px 22px;
+  color: #fff;
+  text-decoration: none;
+  box-shadow: 0 22px 44px -26px var(--gl-shadow);
+}
+.door-lib { margin-top: 3.5rem; }
+.door img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s;
+}
+.door:hover img { transform: scale(1.05); }
+.door::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 35%, rgba(15, 14, 12, 0.82));
+}
+.door-text {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+  padding: 1.6rem;
+  display: grid;
+  gap: 0.25rem;
+}
+.door-text .eyebrow { color: rgba(255, 255, 255, 0.85); }
+.door h2 { font-size: clamp(2.75rem, 6vw, 4rem); color: #fff; }
+.door-foot {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-top: 0.75rem;
+}
+.door .enter {
+  font-weight: 700;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.7);
+  padding-bottom: 2px;
+}
+
+/* At-a-glance comparison table */
+.glance th { font-size: 1.35rem; font-weight: 400; }
+.glance th.row-label,
+.glance td.row-label {
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gl-muted);
+  white-space: nowrap;
+}
+
+@media (max-width: 720px) {
+  .doors { grid-template-columns: 1fr; }
+  .door { aspect-ratio: 4 / 3.4; border-radius: 140px 140px 20px 20px; }
+  .door-lib { margin-top: 0; }
+}
+
+/* ---------- 5. Restaurant pages ---------- */
+.page-blu { --venue: var(--gl-blu); --venue-soft: var(--gl-blu-soft); --venue-font: var(--font-blu); }
+.page-library { --venue: var(--gl-lib); --venue-soft: var(--gl-lib-soft); --venue-font: var(--font-lib); }
+
+.venue-intro { background: color-mix(in srgb, var(--venue-soft) 55%, transparent); }
+.venue-title {
+  font-family: var(--venue-font);
+  color: var(--venue);
+  font-size: clamp(3.5rem, 10vw, 6.5rem);
+}
+.page-blu .venue-title { font-weight: 500; letter-spacing: -0.04em; }
+.venue-sub { font-family: var(--venue-font); font-size: 1.3rem; }
+.page-library .venue-sub { font-style: italic; }
+.page-blu .section-title, .page-library .section-title {
+  font-family: var(--venue-font);
+  color: var(--venue);
+}
+
+/* Restaurant color helpers (btn-venue = blu navy or Library green) */
+.btn-venue { background: var(--venue); border-color: var(--venue); color: #fff; }
+.btn-venue:hover { filter: brightness(1.1); }
+
+/* Specials cards */
+.special-title { font-family: var(--venue-font); color: var(--venue); font-size: 1.5rem; }
+.special-when { background: var(--venue-soft); color: var(--venue); font-weight: 600; height: auto; padding-block: 0.2rem; }
+
+/* Menu component */
+.menu-tabs.tabs .tab { font-weight: 600; }
+.menu-tabs.tabs .tab.tab-active { background: var(--venue); color: #fff; border-radius: var(--radius-field); }
+.page-library .menu-card { border: 5px double var(--gl-lib); border-radius: 0.4rem; }
+.menu-note { font-style: italic; color: var(--gl-muted); margin: 0.75rem 0 0.25rem; }
+.menu-grid { display: grid; grid-template-columns: 1fr 1fr; column-gap: 2.5rem; }
+.menu-subhead {
+  grid-column: 1 / -1;
+  font-family: var(--venue-font);
+  color: var(--venue);
+  font-size: 1.35rem;
+  margin-top: 1.25rem;
+  padding-bottom: 0.3rem;
+  border-bottom: 1px solid var(--color-base-300);
+}
+.menu-item { padding: 0.8rem 0; border-bottom: 1px dashed var(--color-base-300); min-width: 0; }
+.menu-line { display: flex; align-items: baseline; gap: 0.4rem; }
+.menu-name { font-weight: 600; }
+.menu-tag { color: var(--venue); border-color: currentColor; flex: none; }
+.menu-leader { flex: 1; min-width: 1rem; border-bottom: 2px dotted var(--color-base-300); transform: translateY(-0.25rem); }
+.menu-price { font-weight: 700; color: var(--venue); white-space: nowrap; font-variant-numeric: tabular-nums; }
+.menu-desc { font-size: 0.9rem; color: var(--gl-muted); margin-top: 0.15rem; }
+@media (max-width: 760px) { .menu-grid { grid-template-columns: 1fr; } }
+
+/* Hours table */
+.hours-table td { padding-inline: 0; }
+.hours-table tr.is-today td { font-weight: 700; color: var(--venue); }
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; }
+}
